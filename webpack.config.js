@@ -1,9 +1,8 @@
 const path = require('path');
 
-module.exports = {
+const config = {
     context: __dirname,
     entry: './src/index.jsx',
-    devtool: "cheap-eval-source-map",
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
@@ -29,8 +28,17 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                loader: 'babel-loader'
-            }
+                loaders: ['babel-loader', path.join(__dirname, 'loader.js')]
+            },
         ]
+    },
+    mode: 'development',
+}
+
+module.exports = (env, argv) => {
+    if(argv.mode === 'development') {
+        config.devtool = 'source-map'
     }
+
+    return config
 }

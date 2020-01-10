@@ -6,6 +6,7 @@ const App = (props) => {
   return (
   <div>
     <h1>{props.text}</h1>
+    __(This should be a header)
   </div>)
   ;
 }

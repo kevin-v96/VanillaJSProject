@@ -8,8 +8,7 @@
     "format": "prettier \"src/**/*.{js,jsx,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Kevin Vegda",
