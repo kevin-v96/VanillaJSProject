@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = function (props){
+const App = (props) => {
   return (
   <div>
     <h1>{props.text}</h1>
