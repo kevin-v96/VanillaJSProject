@@ -1,4 +1,5 @@
 const path = require('path');
+const customPlugin = require(path.join(__dirname, 'customPlugin.js'));
 
 const config = {
     context: __dirname,
@@ -32,13 +33,19 @@ const config = {
             },
         ]
     },
-    mode: 'development',
+    plugins: [
+        new customPlugin({ options: true })
+    ],
 }
 
 module.exports = (env, argv) => {
-    if(argv.mode === 'development') {
+    if(argv.development) {
+        config.mode = 'development'
         config.devtool = 'source-map'
     }
+    else {
+        config.mode = 'production'
+    }
 
-    return config
+    return config;
 }
